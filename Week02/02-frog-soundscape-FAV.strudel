@@ -1,0 +1,18 @@
+// @title frog-soundscape
+// @by leo
+
+
+samples ({
+  frogAmbient: 'https://cdn.freesound.org/previews/710/710245_10954437-lq.mp3',
+
+  frosch: 'https://cdn.freesound.org/previews/275/275551_537412-lq.mp3',
+  
+  clicker: 'https://cdn.freesound.org/previews/203/203910_3564812-lq.mp3',
+
+  lowcroack: 'https://cdn.freesound.org/previews/631/631420_151878-lq.mp3',
+
+  bitfrog: 'https://cdn.freesound.org/previews/8/8727_22332-lq.mp3'
+  
+})
+
+s("[<25 12 15 6>] [frogAmbient?0.6 3]?0.6 [clicker] <clicker frosch> frosch [lowcroack | bitfrog*2]")
