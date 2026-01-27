@@ -1,0 +1,12 @@
+// @title polyrhythm-polymetre
+// @by Leo
+
+stack (
+s("<[lt ht mt], [rim:1 casio] [rim:1 casio:4 rim]>*2").gain(1),
+  
+s("{jazz casio rim, hh hh:2}*2").gain(.4), // polymetre framing using {}
+s("[- jazz casio rim, hh hh:2]*2").gain(.3), // polyrhythm feaming using []
+  
+note("[c d e f g a b c4, c d e f g a b]*2").gain(.6),
+note("{- c d e f g a b c4, c d e f g a b}*2").gain(.3)
+)
