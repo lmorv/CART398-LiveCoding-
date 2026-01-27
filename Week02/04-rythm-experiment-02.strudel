@@ -1,0 +1,6 @@
+// @title rythm-experiment-02
+// @by Leo
+stack(
+  s("lt - ht mt!3 <hh*3 rd> "),
+  s("- bd*2 - bd@3 <bd lt*2> ")
+)

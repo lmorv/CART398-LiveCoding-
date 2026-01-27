@@ -1,0 +1,9 @@
+// @title rythm-experiment-01
+// @by Leo
+
+//s("bd sd")
+//s("bd [rim jazz] - [bd bd - [casio casio] rim casio]")
+//s ("bd [rim*3 rim rim/3] mt lt")
+
+setcps(130/50/4) // 130 BPM
+s("[bd rim/3 mt lt]*2")

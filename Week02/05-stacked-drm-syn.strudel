@@ -1,0 +1,16 @@
+// @title stacked-drm-syn
+// @by Leo
+stack(
+ s("[- bd*2 - bd@3 <bd lt*3>], [- - bd*2 - bd@3 <bd lt*6>]").bank("SimmonsSDS5").gain(.5),
+  
+  note("[ [c d e . f g a] b c4, c d e f g a b ]*2").s("jazz").gain(.6),
+  
+  //s("[- bd*2 - bd@3 <bd sd*2>], [- - bd*2 - bd@3 < - bd misc*2>]").bank("KorgMinipops"),
+
+  s("misc*6 bd, bd!6").bank("KorgMinipops"),
+  
+  note("[c d e . f g a]?0.7, [c d e . f g a]?0.5 ").s("gm_pad_poly").gain(.6),
+  //note("[c d e . f g a]").s("gm_pad_poly").gain(.7),
+  
+ // note("[- c d e . f g a]").s("jazz").gain(.7),
+)
