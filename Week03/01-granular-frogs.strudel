@@ -1,0 +1,12 @@
+// @title granular-frogs
+// @by leo
+
+samples({
+  frogAmbient: 'https://cdn.freesound.org/previews/710/710245_10954437-lq.mp3',
+        
+})
+
+$: s("frogAmbient").begin("<.25 .6>").end("<.55 .75>").chop(16)._scope()
+$: s("frogAmbient").chop(160).loop(12)._scope()
+$: note("c2 <eb2 <g2 g1>>".fast(2)).sound("<sawtooth triangle sine>").legato("<.5 1 .6 .3>")
+._scope()

@@ -1,0 +1,15 @@
+// @title bassy-plucks
+// @by leo
+
+samples('github:tidalcycles/dirt-samples')
+
+$: n("0 1 7 9 10 11, <6 5>*64?.2")
+.s("pluck").speed("0.9 0.92 0.94")
+.gain(".4").scope()
+
+$: n("0 11 13 10").s("pluck").speed("<1.95 0.82>")
+.gain(".6")._scope()
+
+$: n("[16 12 10]?.4, [10!2 11] ")
+.s("pluck")
+.gain(".4")._scope()
