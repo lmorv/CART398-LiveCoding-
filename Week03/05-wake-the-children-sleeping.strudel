@@ -1,4 +1,4 @@
-// @title sounds-of-palestine
+// @title wake-the-children-sleeping
 // @by leo
 
 samples('shabda/speech/en-GB/m:magnifique,wake_the_children_sleeping,you_are_supposed_to_be_a_disturber_of_the_peace,of_the_peace')
@@ -12,35 +12,10 @@ samples({
   james: 'https://cdn.freesound.org/previews/543/543935_11512256-hq.mp3',
 })
 
-$: s("gazaChant")
-  // .slice(160, "2 4 15")
-  // .begin(".75")
-  .chop(30)
-  // .rev()
-  .loopAt(80).gain(.3)
-  ._scope()
-$: s("oliveCrickets")
-  // .slice(160, "2 4 15 [56 5]")
-  // .begin(.25)
-  .chop(200)
-  .rev()
-  .loopAt(87)._scope()
-$: s("palInsects")
-  // .slice(160, "2 4 15 [56 5]")
-  .begin(.25)
-  .chop(100)
-  .rev()
-  .loopAt(87)._scope()
-$: s("birdsPalWall")
-  .slice(30, "2 4 15 [26 5], 10 3 15 12 7")
-  // .begin(.25)
-  // .chop(10)
-  // .rev()
-  // .loopAt(87)
-  ._scope()
 
-  $: s("james")
-  // .begin(".75")
+
+  $: s("james, james*0.4, james")
+  .begin(".25")
   .chop(30)
   // .rev()
   .loopAt(370)
@@ -51,3 +26,15 @@ $: s("wake_the_children_sleeping?.6 you_are_supposed_to_be_a_disturber_of_the_pe
   .hpf("<500 200 100>").gain("<.2 .4 1>")
   .scope()
 
+$: s("rallyDir")
+  // .slice(160, "2 4 15 [56 5] ")
+  // .striate(6)
+  .begin(.75)
+  .chop(180)
+  .rev()
+  .loopAt(97).gain(".1 .09 .08 ")
+  // .slow(3)
+  //.splice(2, "0 1 3 [4 0] 5").slow(0.75)
+  ._scope()
+
+  
