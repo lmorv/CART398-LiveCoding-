@@ -1,0 +1,48 @@
+samples('shabda/speech/en-GB/m:magnifique,wake_the_children_sleeping,you_are_supposed_to_be_a_disturber_of_the_peace,of_the_peace')
+
+samples({
+  gazaChant: 'https://cdn.freesound.org/previews/827/827268_17247322-hq.mp3',
+  rallyDir: 'https://cdn.freesound.org/previews/833/833028_6423580-hq.mp3',
+  oliveCrickets: 'https://cdn.freesound.org/previews/817/817744_17247322-hq.mp3',
+  palInsects: 'https://cdn.freesound.org/previews/811/811908_17247322-hq.mp3',
+  birdsPalWall: 'https://cdn.freesound.org/previews/818/818624_17247322-hq.mp3',
+  james: 'https://cdn.freesound.org/previews/543/543935_11512256-hq.mp3',
+})
+
+$: s("gazaChant")
+  // .slice(160, "2 4 15")
+  // .begin(".75")
+  .chop(30)
+  // .rev()
+  .loopAt(80).gain(.3)
+  ._scope()
+$: s("oliveCrickets")
+  // .slice(160, "2 4 15 [56 5]")
+  // .begin(.25)
+  .chop(200)
+  .rev()
+  .loopAt(87)._scope()
+$: s("palInsects")
+  // .slice(160, "2 4 15 [56 5]")
+  .begin(.25)
+  .chop(100)
+  .rev()
+  .loopAt(87)._scope()
+$: s("birdsPalWall")
+  .slice(30, "2 4 15 [26 5], 10 3 15 12 7")
+  // .begin(.25)
+  // .chop(10)
+  // .rev()
+  // .loopAt(87)
+  ._scope()
+
+  $: s("james")
+  // .begin(".75")
+  .chop(30)
+  // .rev()
+  .loopAt(370)
+  ._scope()
+$: s("wake_the_children_sleeping?.6 you_are_supposed_to_be_a_disturber_of_the_peace?.5 of_the_peace?.4")
+  .slow(4)
+  .speed(".9 .6, 0.8, 1.3 1.2, 1.1 .7").crush(9)
+  .hpf("<500 200 100>").gain("<.2 .4 1>")
