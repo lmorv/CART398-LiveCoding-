@@ -1,0 +1,5 @@
+// @title scales-exercise
+// @by leo
+
+$: n("1 2 3 4 5 7 8 9 10").scale("kumoijoshi")
+$: n("1 .. 12").scale("<lydian lydian:minor>")
