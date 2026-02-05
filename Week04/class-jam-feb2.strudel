@@ -1,0 +1,33 @@
+// @title class-jam-feb2
+// @by leo
+
+setcpm(120/4)
+
+samples({
+  rallyDir: 'https://cdn.freesound.org/previews/833/833028_6423580-hq.mp3',
+})
+
+$: s("rallyDir")
+  .begin(.75)
+  .chop(180)
+  .rev()
+  .loopAt(97).gain(".1 .09 .08 ")
+  //.slow(3)
+  //.splice(2, "0 1 3 [4 0] 5").slow(0.75)
+  .every(4, x=>x.slow(4).room(1.2)
+  .delay(0.4)
+  .hurry("<1.4 0.2 0.3>")
+  .degradeBy(0.25)
+  .ply("2 0.4 3 0.2"))
+
+$: n("3 4, 5 <9 6?0.5 >*2 6 4 5, 2 <9 6?0.5>*2 6 4 5")
+  .sound("gm_electric_guitar_muted, gm_blown_bottle, gm_voice_oohs")
+    .scale('c:bebop').gain("0.1")
+
+$: s("[rim:1(3,8,<0 0 0 1>)]*2 6 9 5").gain("0.1")
+.every(2, x=>x.slow(4)
+  .delay(0.4)
+  .hurry(2)
+  .degradeBy(0.25)
+  .ply("2 0.4 3 0.2") 
+       )
