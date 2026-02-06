@@ -1,0 +1,17 @@
+// @title deep-acid-tutorial @by Leo
+setCps(140/60/4)
+
+$synthkick: s("sbd!4").distort("3:.3")._scope().duck("2:6:4").duckattack(.2).duckdepth(.8)
+
+$bass: n(irand(10).sub(7).seg(16)).scale("c:minor")
+.rib(46,1)
+  .distort("2.2:.3")
+.s("sawtooth").lpf(200).lpenv(slider(2.76,0,8)).lpq(12).orbit(2).gain(.5)._pianoroll()
+
+$bass2: n(irand(16).sub(slider(8, 7, 14)).seg(slider(4, 2, 16, 2))).scale("c:minor")
+.s("sawtooth").lpf(200).lpenv(2).lpq(12).orbit(5)._pianoroll()
+
+$foghorn: s("supersaw").detune(1).rel(5).beat(2, 32).slow(2).orbit(2)
+.fm("2").fmh(2.04).room(1).roomsize(6).degradeBy(.1).scope()
+
+$riser: s("pulse").orbit(4).seg(16).dec(.1).fm(time).fmh(time).gain(.81)
