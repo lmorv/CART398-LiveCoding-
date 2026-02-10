@@ -1,0 +1,32 @@
+// @title modulation-fm-examples @by leo
+
+setcpm(170/4)
+
+// $: s("saw")
+//   .fm(slider(0.54, 0, 20))
+//   .fmh(slider(3.517, 0.5, 4))
+
+// Testing harmonicity ratios with fmh()
+// $: s("sine").note("F3")
+//   .fm(3)
+//   .fmh("<2 4 3.1 2.03 2.3 0.5 0.25 0.125>")
+//   .fmattack(.4) // attack time of the modulator
+//   .fmdecay(2)//.decay(1.5)
+
+// 'Reese Bass'-like sound
+$: s("saw").note("F1")
+  .fm(slider(1.467, 0, 3)).fmh("0.99, 1.01") //Stack harmonicity ratios
+  .lpf(slider(200, 200, 5000))
+  .diode(1.3).compressor(-20) 
+
+
+$: s("saw").seg(4).release(0.5) // segment 'samples a pattern at a rate of n events per cycle'
+  .n(irand(12)).scale("F:minor") // play a random index from the sample map between 0 and n-1
+  .fm(slider(0.059, 0, 1)).fmwave("<white [pink?.3] brown crackle>")
+
+// example using a wavetable, and a chain of fm's modulating eachother:
+$: s("wt_digital").note("F1").compressor(-20).chebyshev(2) // 'Distortion via Chebyshev polynomials'
+  .fm(1.3).fmh(0.99).fmwave("sawtooth").gain(slider(1, 0, 1))
+  // .fm2(2) // fm2() is only available at url: warm.strudel.cc (experimental host site)
+  //   // // .fmh2(9)
+  //   // .fmh2(9.04)
