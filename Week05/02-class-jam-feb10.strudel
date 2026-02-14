@@ -1,0 +1,12 @@
+setcps(120/60/4)
+$: s("sbd!4").n(irand(6)).distort("3:.3").duck("2:6:4").duckattack(2.2).duckdepth(.8)
+  .every(2, x=>x.fast("<4 2 2>")).gain(0.31).degradeBy(.1)
+
+$: s("hh!2").n(irand(8)).fm(1).fmh("0.99, 1.01")
+    .room(3).size(2)
+   .every(3, x=>x.fast("<2 4 8>")).gain(0.2)
+
+$: s("saw").seg(4).release(0.5) // segment 'samples a pattern at a rate of n events per cycle'
+  .n(irand(12)).scale("d:major") // play a random index from the sample map between 0 and n-1
+  .fm(3).fmwave("crackle")
+  .lpf(2200).gain(.3)
