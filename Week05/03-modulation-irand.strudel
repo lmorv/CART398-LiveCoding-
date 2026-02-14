@@ -1,0 +1,5 @@
+// @title modulation-irand @by leo
+
+$: sound("casio:1*16").speed(tri.segment(32)).gain(.2)
+
+$: sound("darbuka*8").n(irand(8)).every(3, x=>x.fast("<2 2.1>"))
