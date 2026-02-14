@@ -1,0 +1,13 @@
+// @title synthwave-experiment @by leo
+
+setcpm(90/4)
+
+$: s("bd!4:3").pan("<0 0.5 1 0.5>").duckorbit(2).duckattack(0.25)._scope()
+
+$: s("- sd:4 - sd:4")
+
+$: n("[<a1 a2 a2 a1 c4>], [<a1 a2 a2 a1 c1>]*16").s("supersaw").scale("A:minor").o(2)
+
+$: chord("<Am F Dm@2>").s("gm_synth_brass_1").voicing().gain(.5).o("<2 4 3>").o("<2 4 3>")
+
+$: n("<a f d d>*2").s("supersaw").scale("A:minor").o(2)

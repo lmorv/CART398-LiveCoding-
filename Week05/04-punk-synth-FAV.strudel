@@ -1,0 +1,24 @@
+// @title punk-synth @by leo
+setcpm(160/4)
+
+$: s("bd!4:3, sd:4*2 - - -, - - - lt:4*2")
+  .every(6, x=>x.degradeBy(.3))._punchcard()
+$: n("[<a3 a2 a2 a3 c3>], [<a3 a2 a4 a2 c3>]*4").s("supersaw").scale("f:minor")
+
+$: s("sine").note("c3 a2 a2, c3 b2 b1 ").seg("4 8").scale("f:minor")
+  .fm(4)
+  .fmh("<2, 4 3.1 2.03, 2.3 0.5, 0.25 0.125>")
+  .fmattack(.2) // attack time of the modulator
+  .fmdecay(4).crush(4).degradeBy(.01).postgain(0.4)
+
+// $bass: n(irand(16).sub(slider(7, 7, 14)).seg(slider(8, 2, 16, 2))).scale("c:minor")
+// .s("sawtooth").lpf(2000).lpenv(2).lpq(12).orbit(5)._pianoroll()
+
+
+//Modulated saw bass:
+$: s("saw").note("F5 C3 [D1 D2!16]").seg(16).scale("f:minor")
+  .fm(slider(1.302, 0, 3)).fmh("0.99 3 1, 1.01 2 1") //Stack harmonicity ratios
+  .lpf(slider(2892.8, 200, 5000))
+  .diode(1.3).compressor(-30)
+  .every(3, x=>x.degradeBy(.5)).gain(0.06).scope()
+  .slow(4) // remove/add for dramatic effect

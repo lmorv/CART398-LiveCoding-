@@ -1,0 +1,24 @@
+// @title post-punk-beats-experiment @by leo
+setcpm(130/4)
+
+$: s("bd!2:3")._scope()
+
+$: s("<bd*4:2 [bd*2:2 [bd*4] <bd*2 bd*6>]>").bank("tr909").o("2 3")
+  .duckorbit(2).duckdepth(0.4)._scope()
+  // .postgain(1)
+
+
+$: chord("<Am [C Eb Am C] F Dm*8>").seg(16).s("gm_synth_brass_2").voicing()
+  .degradeBy(.0).every(4, x=>x.fast(4).crush(16)).gain(.41)._scope()
+
+$: n("[<a3 a2 a2 a3 c3>], [<a3 a2 a4 a2 c3>]*4").s("supersaw").scale("f:minor")
+
+// Testing harmonicity ratios with fmh()
+$: s("sine").note("c3 a2 a2, c3 b2 b1 ").seg("4 8").scale("f:minor")
+  .fm(4)
+  .fmh("<2, 4 3.1 2.03, 2.3 0.5, 0.25 0.125>")
+  .fmattack(.2) // attack time of the modulator
+  .fmdecay(4).degradeBy(.31).postgain(0.4)//.decay(1.5)
+
+$: s("saw").seg(8).note("B2").scale("f:minor").fm(2).o("1 2@4 3 4")
+   .lpf(1000).postgain(.96)._spectrum()
