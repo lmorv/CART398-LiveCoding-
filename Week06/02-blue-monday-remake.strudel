@@ -1,0 +1,40 @@
+// @title blue-monday-remake @by leo
+// after lewis https://www.youtube.com/watch?v=ilF4t0jSBUo  
+
+
+setcpm(130/4)
+
+const kick1 = sound("<[bd bd [bd*4] [bd*4]] [bd*4]>").bank("linn").decay(0.16)
+const kick2 = sound("[bd*4]").bank("linn").decay(0.15)
+
+const hats1 = sound("[oh oh*2]*4").bank("dmx").decay(0.1).sustain(0.1).gain(0.15)
+const hats2 = sound("[- oh]*4").bank("dmx").decay(0.2).sustain(0.1).gain(0.15)
+
+const snare = stack(
+  sound("[- sd]*2").bank("linn").gain(0.5),
+  sound("[- cp]*2").bank("linn").gain(0.1),
+)
+
+const drums1 = stack(kick1,hats1,snare)
+const drums2 = stack(kick2,hats2,snare)
+const drums3 = stack(
+  sound("bd bd bd bd -").bank("linn").decay(0.16),
+  sound("oh oh oh oh -").bank("dmx").decay(0.2).sustain(0.1).gain(0.15)
+)
+
+const bass1 = note("<<[f1 f2]*2 [g1 g2*2]*2> [c1 c2]*2 [d1 d2]*2 [d1 d2]*2>*2 ").sound("<sine, gm_synth_bass_1>").decay(0.2).sustain(0.4)
+
+const bass2 = note("<<[f1 f2]*2 [g1 g2]*2> [c1 c2]*2 [d1 d2]*2 [d1 d2]*2>*2").sound("<sine, gm_synth_bass_1 saw>").decay(0.2).sustain(0.5).gain(.4)
+
+
+const synth = n("<[[2 -] [2 -] 2 3] [[3 -] [3 -] 3 3]>@4 [-1 -] -1 -1 [0 -] 0 0 [0 -] 0 0 [0 -] 0 0").sound("gm_lead_2_sawtooth")
+  .scale("d4:minor")
+  .attack(.05).hpf("<1000 2000>*12")
+  .slow(2)
+  .gain(0.4)
+
+stack(
+  arrange( [8, kick1], [8, drums1], [2,drums3], [8, drums2], [1, silence]).room(0.15).size(4),
+  arrange([8, silence], [8, bass1], [2, silence], [8, bass2], [1, silence]),
+  arrange([8, silence], [16, synth], [8, silence])
+)._pianoroll()
