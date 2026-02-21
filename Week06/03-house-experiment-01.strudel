@@ -1,0 +1,40 @@
+// @title house-experiment-01 @by leo
+// based on Glossing https://www.youtube.com/watch?v=m7Rp46AU8dw
+
+// $: s("bd*4 bd*6").bank("korgkr55")
+
+$: s("<bd*4 bd*8>").bank("korgkr55")._scope()
+$: s("<bd*4>").bank("korgkr55").duck(5).duckattack(0.3)._scope()
+
+$: s("<[- sd]*2 <[- sd]*2 sd*8>>").bank("korgkr55")
+
+$: s("hh*16").bank("korgkr55").decay(.05)._spectrum()
+$: s("[- oh]*4").bank("korgkr55").decay(.1)._spectrum()
+$: n("<<[3 2 4]*2 [2 4]> 2 3>").s("gm_pad_halo").note("c2").transpose("<0 -2 14>")
+
+$: n("[6 7 6 4]*2, <5 3 [4 7]*2>").s("gm_pad_metallic")
+  .room(0.3).delay(0.3).crush(5)
+  .orbit(5)
+
+
+// bass using a complicated way of playing notes after defining the sound bank to make it do the intuitive thing
+$: s("saw").set.mix(`< 
+  - 3
+  4 3
+  - 3
+  - 5
+  - 5
+  4 5
+  - 5
+  - 5
+  - 3
+  - 3
+  - 3
+  - 6
+  - 6
+  7 6
+  - 2
+>*8`.as("n")).scale("C1:minor").lpf(rand.range(200,800)).lpq(15)
+  .sometimesBy(0.25, x=> x.ply("2"))
+  .lpe(4).postgain(2)
+  ._pianoroll({labels:1, width: 1000})
