@@ -1,0 +1,48 @@
+// @title cdmx-soundscape @by leo
+
+samples({
+  demo: 'https://cdn.freesound.org/previews/255/255675_2787691-hq.mp3',
+  terraza: 'https://cdn.freesound.org/previews/393/393817_5990302-hq.mp3',
+  trueno: 'https://cdn.freesound.org/previews/351/351227_6455780-hq.mp3',
+  calle: 'https://cdn.freesound.org/previews/622/622105_11058969-hq.mp3',
+  tortilla: 'https://cdn.freesound.org/previews/622/622107_11058969-hq.mp3',
+})
+
+$: s("demo")
+  .slice(24, "2 4 15, 16 12 3, 1 2 3 4 5 6 7 8 9 10 11 12, 16 17 18 19 20")
+  // .begin(".75")
+  // .chop(30)
+  // .rev()
+  .gain(.2)
+  .clip(8)
+  ._scope()
+
+$: s("terraza")
+  .slice(150, `2 4 8 10 12 14 16 18 20,
+         1 2 3 4 5 6 7 8 9 10 11 12, 
+         20 21 22 23 24 25 26 27, 
+         30 31 32 33 34 35 36 37 38,
+         40 41 42 45 46 47 48`)
+  // .begin(.25)
+  // .chop(4)
+  .clip(4).gain(2)
+  ._scope()
+
+$: s("trueno")
+  .slice(16, "2 4 15 [3 6] 16 15 14, 1 2 3 4 5 6 7 8 ")
+  .clip(2)
+  // .chop(10)
+  // .rev()
+
+  
+._scope()
+$: s("calle")
+  .slice(6, "2 4 5 [3 6] 8 5 6, 1 2 3 4")
+  .clip(4).gain(2)
+
+._scope()
+$: s("tortilla")
+  .slice(16, "2 4 5 [3 6] 8 7 6, 1 2 3 4 5 6 7 8 ")
+  .clip(4)
+
+._scope()
