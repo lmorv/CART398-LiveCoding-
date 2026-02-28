@@ -1,0 +1,20 @@
+// https://flok.cc/s/raw-plum-rattlesnake-e9b17b0d#targets=hydra%2Chydra%2Chydra%2Chydra&c0=&c1=Ly8gbm9pc2UgaW50ZXJwb2xhdGluZyBiZXR3ZWVuIGRpZmZlcmVudCBzY2FsZXMgYW5kIG9mZnNldHMKbm9pc2UoICgpID0%252BIE1hdGguc2luKHRpbWUvMTApKjUwICwgKCkgPT4gTWF0aC5zaW4odGltZS8yKS81MDAgKS5vdXQoKQoKb3NjKCgpID0%252BIE1hdGguc2luKHRpbWUvMSkqMjArMTAwLCAwLCAoKSA9PiBNYXRoLnNpbigyKnRpbWUpKS5vdXQoKQ%253D%253D&c2=Ci8vIGNvbnRpbm91cyBzcGluIHdpdGggc2xvdy1pbiBlZmZlY3Q6Cm9zYygoKSA9PiAwLjEgKiBNYXRoLnNpbih0aW1lKSArIDIwLCAwLjEsIDEpCgkucm90YXRlKDAuMjUsIDEpCgkub3V0KCkgCgovLyBQdWxzaW5nIHNoYXBlCnNoYXBlKDQwLCAwLjMsIDAuMDEpCiAgLmNvbG9yKDEsIDAsIDApCiAgLnNjYWxlKCgpID0%252BIDAuNSpNYXRoLnNpbigyMCp0aW1lKSArIC41LCA5LzE2KQogIC5vdXQoKSAK&c3=dm9yb25vaSggNiwgMC41LCAwLjMgKQogIC5jb2xvciggMC45LCAwLjAsIDAuOSApLm1vZHVsYXRlKAogIG9zYyggNiwgLTAuMSApCiAgLnJvdGF0ZSggOSApCikKLmFkZCgKICBvc2MoIDEwLCAtMC45LCA5MDAgKQogIC5jb2xvcigxLDAsMSkKICAucm90YXRlKDMwMCkKKQoubXVsdCgKICBzaGFwZSg5MDAsIDAuMiwgMSkKICAubHVtYSgpCiAgKQogIC5zY2FsZSgoKSA9PiAyKk1hdGguc2luKHRpbWUpICsgMywgOS8xNikKICAvLyAucGl4ZWxhdGUoODAsMTAwKQogIC8vIC5waXhlbGF0ZSgoKSA9PiAyKk1hdGguc2luKDIwKnRpbWUpICsgNSwgMzAwKQogIC5vdXQoKQ%253D%253D
+
+voronoi( 6, 0.5, 0.3 )
+  .color( 0.9, 0.0, 0.9 ).modulate(
+  osc( 6, -0.1 )
+  .rotate( 9 )
+)
+.add(
+  osc( 10, -0.9, 900 )
+  .color(1,0,1)
+  .rotate(300)
+)
+.mult(
+  shape(900, 0.2, 1)
+  .luma()
+  )
+  .scale(() => 2*Math.sin(time) + 3, 9/16)
+  // .pixelate(80,100)
+  // .pixelate(() => 2*Math.sin(20*time) + 5, 300)
+  .out()

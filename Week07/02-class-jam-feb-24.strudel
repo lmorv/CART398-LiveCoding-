@@ -1,0 +1,61 @@
+// @title class-jam-feb24 @by leo&Jashim 
+// https://flok.plasm.studio/s/cart398-lc-st-st-st-07#targets=strudel%2Csclang%2Cstrudel%2Chydra&c0=c2FtcGxlcyAoJ2dpdGh1Yjpjb25jb3JkaWEtZGNhcnQvc2FtcGxlcy1leHRyYScpCnNhbXBsZXMgKCdnaXRodWI6amFzaGltcm9kcmlndWV6LWxpbHZpc2lvbnMvU09VTkRTTFYnKQoKICBzZXRjcHMoMTEwLzYwLzQpCmxldCBzZWN0MSA9IDQ7CmxldCBzZWN0MiA9IDg7CmxldCBzZWN0MyA9IDE2OwpsZXQgYnJlayA9IDQ7CgoKLy9CQVNTCgoKLy8gJDogbm90ZSgiZTEgZTEgZzEgW2cxIGUxXSIpCi8vICAgLnMoImdtX3N5bnRoX2Jhc3NfMSIpCi8vIC5scGYoMzAwKQovLyAuZ2FpbigwLjgpCgovLyAkOiBub3RlKCJlMSB%252BIGcxIH4iKQovLyAgIC5zKCJnbV9zeW50aF9iYXNzXzEiKQovLyAubHBmKDMwMCkKLy8gLmdhaW4oMC44KQoKLy8gLy8gQmFzc3N5bnRocyAxCgovLyAkOiBub3RlKCI8W2U0IGU0IGc0IGc0XSBbZTRhNCBnNCBlNCBkNF0gW2M0IGM0IGQ0IGU0XSBbZDQgYzQgYzQgZTRdIFtlNCBnNCBnNCBhNF0gW2c0IGU0IGQ0IGM0XSBbYzQgZDQgZTQgZDRdPiIpCi8vIC8vICAgLnMoInNpbiIpCi8vIC5nYWluKDAuNykKLy8gLnJvb20oMC45KQovLyAuZGVsYXkoMC42KQoKLy8gc3ludGhzIDEKCi8vICQ6IG5vdGUoIjxlNCBlNCBnNCBnNCBhNCBnNCBlNCBkND4gPGM0IGM0IGQ0IGU0IGQ0IGM0IGM0PiA8ZTQgZTQgZzQgZzQgYTQgZzQgZTQgZDQ%252BIDxjNCBjNCBkNCBlNCBkNCBjNCBjND4iKQovLyAgIC5zKCJnbV9zeW50aF9jaG9pciIpCi8vIC5nYWluKDAuOSkKLy8gLnJvb20oMC4zKQoKCi8vICQ6IG5vdGUoIiA8ZTQgZTQgZzQgZzQgYTQgZzQgZTQgZDQgYzQgYzQgZDQ%252BIDxlNCBkNCBjNCBjNCBlNCBlNCBnNCBnNCBhNCBnNCBlNCBkNCBjNCBjNCBkNCBlNCBkNCBjNCBjND4iKQovLyAgIC5zKCJnbV9ndWl0YXJfaGFybW9uaWNzIikKLy8gLmdhaW4oMC4xKQovLyAucm9vbSgwLjkpCi8vIC5kZWxheSgwLjYpCgoKLy8gJDogYXJyYW5nZSgKLy8gICAgICBbYnJlaywgIn4gfiB%252BIH4iXSwKLy8gICBbc2VjdDIsICJ%252BIH4gfiB%252BIl0sCi8vICAgICAgICAgICBbc2VjdDMsICIgeCB4IHggeCB4IHggeCB4IHggeCB4IHggeCB4IHggeCAiXSkKLy8gICAubigiMCAxIDEwIDYgMCAzIDUgIikKLy8gICAucygiZ21fcGFkX2hhbG8iKQovLyAgIC5nYWluKDAuOSkKLy8gICAucm9vbSgwLjkpCi8vICAgLmRlbGF5KDAuNSkKCi8vICQ6IGFycmFuZ2UoCi8vICAgICAgW2JyZWssICJ%252BIH4gfiB%252BIl0sCi8vICAgW3NlY3QyLCAieCB4IH4gfiJdLAovLyAgICAgICAgICAgW3NlY3QzLCAiIFggfiBYIH4iXSkKLy8gICAubigiMCAxIDEwIDYiKQovLyAgIC5zKCJnbV92aW9saW4iKQovLyAgIC5nYWluKDAuMSkKLy8gICAucm9vbSgwLjkpCi8vICAgLmRlbGF5KDAuNSkKCi8vTWVsb2R5IDIKCi8vICQ6IGFycmFuZ2UoCi8vICAgICAgW3NlY3QxLCAieCB%252BIHggfiJdLAovLyAgIFtzZWN0MiwgIn4geCB%252BIHgiXSwKLy8gICAgICAgICAgIFtzZWN0MywgIiBYIH4gWCB%252BIl0pCi8vICAgLm4oIjAgMSAxMCA2IikKLy8gICAucygiZ21fYnJlYXRoX25vaXNlIikKLy8gICAuZ2FpbigwLjQpCi8vICAgLnJvb20oMC45KQovLyAgIC5kZWxheSgwLjUpCgovLyAkOiBub3RlKCI8W2U0IGU0IGc0IGc0XSBbZTRhNCBnNCBlNCBkNF0gW2M0IGM0IGQ0IGU0XSBbZDQgYzQgYzQgZTRdIFtlNCBnNCBnNCBhNF0gW2c0IGU0IGQ0IGM0XSBbYzQgZDQgZTQgZDRdPiIpCi8vICAgLnMoImdtX21hcmltYmEiKQovLyAuZ2FpbigwLjEpCi8vIC5yb29tKDIpCi8vIC5kZWxheSgxKQoKLy8gJDogbm90ZSgiZTQgZTQgZzQgW2c0IGU0XSIpCi8vICAgLnMoImdtX2xlYWRfOF9iYXNzX2xlYWQiKQovLyAuZ2FpbigwLjMp&c1=&c2=CgpfJDogcygiYmQhNDozLCBzZDo0KjIgLSAtIC0sIC0gLSAtIGx0OjQqMiIpLmdhaW4oMC43KS5jcnVzaCg2KQogIC5ldmVyeSg0LCB4PT54LmRlZ3JhZGVCeSguNSkpCgokOnNvdW5kKCJbLSBzZF0qMiwgW2NwIC1dKjIiKS5iYW5rKCJsaW5uIikuZ2FpbigwLjQpCgpfJDpzdGFjaygKICBzb3VuZCgiYmQgYmQgYmQgYmQgLSIpLmJhbmsoImxpbm4iKS5kZWNheSgwLjE2KS5jcnVzaCg0KSwKICBzb3VuZCgib2ggb2ggb2ggb2ggLSIpLmJhbmsoImRteCIpLmRlY2F5KDAuMikuc3VzdGFpbiguMikuY3J1c2goOCkuZ2FpbigwLjE1KQopCgokOiBuKGlyYW5kKDE2KS5zdWIoMTQpLnNlZygxNikpLnNjYWxlKCJnOm1ham9yIikKLnMoInNhd3Rvb3RoIikubHBmKDIwMCkubHBxKDEyKQoKCmxldCBzZWN0MSA9IDQ7CmxldCBzZWN0MiA9IDg7CmxldCBzZWN0MyA9IDE2OwpsZXQgYnJlayA9IDQ7CgovL0RydW1zClMkOiBhcnJhbmdlKAogIFtzZWN0MSwgIn4gfiB%252BIH4iXSwKICBbc2VjdDIsICI8eCB4IFt4IHhdIH4geCB4IH4geCB4IFt4IHhdIH4gW3ggeCB4IHhdIHggfiBbeCB4IHggeF0gW34geF0gPio4Il0sCiAgW2JyZWssICJ4IHggeCB4Il0sCiAgW3NlY3QzLCAiW3ggfl0qNCBbeCB4XSJdCiAgKS5zKCJiZCIpLmxwZigzMDApLmxwcSg0MCkucmVsZWFzZSg0KQoKJDogYXJyYW5nZSgKICBbc2VjdDEsICJ%252BIHggfiB4ICJdLAogIFtzZWN0MiwgInggfiB4IH4iXSwKICBbYnJlaywgIn4gfiB%252BIH4iXSwKICBbc2VjdDMsICJ%252BIHggfiBbIHggIHggIF0gIl0KICApLnMoImtvcmdwb2x5ODAwX2JkIikKCiAkOiBhcnJhbmdlICgKICAgW3NlY3QxLCAiIH4gfiB%252BIH4gW3ggeCB4XSJdLAogIFtzZWN0MiwgIiB4IHggfiB%252BIH4gfiB%252BIH4iXSwKIFticmVrLCAifiB%252BIH4gfiJdLAogW3NlY3QzLCAieCAtIHggLSJdLAogICAgW3NlY3QzLCAifiB%252BIH4gfiAiXQogKQogIC5zKCJkcjU1MF9taXNjIikKICAgLmdhaW4oMC4zKQoucm9vbSgwLjcpCgogJDogYXJyYW5nZSAoCiAgIFtzZWN0MSwgIiB4IH4gfiB%252BIl0sCiAgIFtzZWN0MSwgIiB%252BIH4gWCBYIl0sCiAgW3NlY3QyLCAiIFsgfiB4XSBbIH4geF0gWyB%252BIHhdIFsgfiB4XSAiXSwKIFticmVrLCAifiB%252BIH4gfiJdLAogW3NlY3QzLCAiWyB%252BIHhdIFsgfiB4XSBbIH4geF0gWyB%252BIHhdIl0KICkKICAucygiYWNlX29oIikKICAgLmdhaW4oMC40KQoucm9vbSgwLjQpCg%253D%253D&c3=CmFyciA9IFswLDEuNSwyXQpvc2MoNTAsLjEsYXJyLnNtb290aCgpKQoJLnJvdGF0ZShhcnIuZml0KC1NYXRoLlBJLzQsTWF0aC5QSS80KS5zbW9vdGgoKSkKICAgIC5jb2xvcihQKCIzIDIgNiA4IikpCiAgLy8ubW9kdWxhdGUobm9pc2UoMikpCiAvLyAubW9kdWxhdGVTY2FsZShvMCkKICAua2FsZWlkKFAoIjMgWzQgNiA4XSIpKQogICAgLy8uZGlmZihncmFkaWVudCgpKQogICAgLnJlcGVhdFgoNSkKICAgLy8ubW9kdWxhdGVTY2FsZShvc2MoNiwgMC4xMjUsIDAuMDUpLmthbGVpZCg1MCkpCiAgIC8vIC5sdW1hKC4wNSwgLjgpCiAgICAucmVwZWF0WSgoKT0%252BTWF0aC5zaW4odGltZSkqLjEpCiAgIC8vIC5tb2R1bGF0ZVJvdGF0ZShvMCwgMTApCiAgICAvLyAucGl4ZWxhdGUoMTAwLDEwMDApCgkub3V0KCkK
+
+ setcps(110/60/4)
+
+S$: s("bd!4:3, sd:4*2 - - -, - - - lt:4*2").gain(0.7).crush(6)
+  .every(4, x=>x.degradeBy(.5))
+
+_$:sound("[- sd]*2, [cp -]*2").bank("linn").gain(0.4)
+
+_$:stack(
+  sound("bd bd bd bd -").bank("linn").decay(0.16).crush(4),
+  sound("oh oh oh oh -").bank("dmx").decay(0.2).sustain(.2).crush(8).gain(0.15)
+)
+
+S$: n(irand(16).sub(14).seg(8)).scale("g:major")
+.s("sawtooth").lpf(200).lpq(12)
+
+
+let sect1 = 4;
+let sect2 = 8;
+let sect3 = 16;
+let brek = 4;
+
+//Drums
+S$: arrange(
+  [sect1, "~ ~ ~ ~"],
+  [sect2, "<x x [x x] ~ x x ~ x x [x x] ~ [x x x x] x ~ [x x x x] [~ x] >*8"],
+  [brek, "x x x x"],
+  [sect3, "[x ~]*4 [x x]"]
+  ).s("bd").lpf(200).lpq(10).release(4)
+
+$: arrange(
+  [sect1, "~ x ~ x "],
+  [sect2, "x ~ x ~"],
+  [brek, "~ ~ ~ ~"],
+  [sect3, "~ x ~ [ x  x  ] "]
+  ).s("korgpoly800_bd")
+
+ $: arrange (
+   [sect1, " ~ ~ ~ ~ [x x x]"],
+  [sect2, " x x ~ ~ ~ ~ ~ ~"],
+ [brek, "~ ~ ~ ~"],
+ [sect3, "x - x -"],
+    [sect3, "~ ~ ~ ~ "]
+ )
+  .s("dr550_misc")
+   .gain(0.3)
+.room(0.7)
+
+ $: arrange (
+   [sect1, " x ~ ~ ~"],
+   [sect1, " ~ ~ X X"],
+  [sect2, " [ ~ x] [ ~ x] [ ~ x] [ ~ x] "],
+ [brek, "~ ~ ~ ~"],
+ [sect3, "[ ~ x] [ ~ x] [ ~ x] [ ~ x]"]
+ )
+  .s("ace_oh")
+   .gain(0.4)
+.room(0.4)
+
