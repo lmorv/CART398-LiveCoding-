@@ -1,0 +1,70 @@
+// @title chopping-breaks @by leo
+// based on: https://www.youtube.com/watch?v=dcmwqqzJubA
+
+samples('github:switchangel/breaks')
+samples('github:switchangel/pad')
+samples('github:tidalcycles/uzu-drumkit')
+
+setCps(170/60/4)
+
+// drum breaks variants:
+
+_$: s("breaks/2").fit()
+  .scrub(".32 .33 .422 .13")
+  .orbit(2)
+
+$: s("breaks/2").n("<0@3 4>").fit()
+  .scrub(irand(16).div(16).seg(8)
+  .rib("<2 20>",1)
+  ).almostNever(ply("2 | 4"))
+  .orbit(2)._scope()
+
+_$: s("breaks/2").fit()
+  .scrub(irand(16).div(16).seg(8)
+  .rib("<50 6>",1)
+  )
+  .n(irand(2).rib(20,1))
+  .almostNever(ply("2 | 4"))
+  .orbit(2).dist("2:.5")._scope()
+// white noise snare:
+$: s("white!8").decay(.08).gain(.5)
+   .almostNever(ply("2 | 4"))
+
+// synthy pad variations:
+
+_$: s("swpad").scrub("0 .3, .22 .4").n("<4 3 2>")
+
+// define chop patterns to scrub:
+const padChops = [
+  ".3@3 .2",
+  ".16!3 .2@5".color("orange"),
+  rand.seg(8).rib(35, 2).color("pink"),
+  "0@5 0@3".add(.5).color("teal"),
+]
+
+// high variation of chop patterns:
+_$: s("swpad").scrub(pick(padChops, "<0@2 2 1>")).n("<4 3 2@2>")
+  .phaser(".5")
+  ._pianoroll()
+// continuos chop pattern:
+$: s("swpad").scrub(pick(padChops, "<3>")).att(.3)
+  .n("4").note("<c2@3 c3>")
+  .room(2).roomsize(4)
+  .phaser(".5").hpf(400)
+  ._punchcard()
+// reese bass variations:
+_$: note("c2@3 <a#2 a2>").seg(8).s("supersaw").lpf(300)
+
+_$: note("c2 g#1 f1").seg(8).s("supersaw").lpf(300)
+
+$: note("<c2 g#1 f1@2>/2").seg(8).s("supersaw")
+  .struct("1@5 1@3").lpenv(7).lpa(4)// modify attack of the envelope for interesting effects
+  .lpf(300).distort("2:.5")
+
+_$: note("c2").seg(8).s("supersaw").lpf(5000)
+
+// global low pass filter:
+
+all(x => x.lpf(slider(70.2,0,100).pow(2))
+    //.rib(6, 1/2) // increments of *2 up to 1/16 to create a buildup effect
+   )
