@@ -1,0 +1,35 @@
+
+noise(3, 0.1)
+	.modulate(osc(4,0.05), 0.1)
+	.kaleid(() => time * 0.002)
+	.color(0.5, 0.5, 1)
+	.diff(
+  		osc(20,0.1,1)
+  		.rotate(() => time * 0.2)
+  		.mult(shape(6, 0.6, 0.01).rotate(() => time * 0.5))
+  		.diff(shape(4,0.2, 0.04).rotate(() => time * -0.2).scale(0.7))
+  		.add(shape(4,0.2, 0.04).rotate(() => time * 0.2).scale(0.3))
+  		, 0.5
+  	)
+	.out(o0)
+
+// // Using multiplication to mask noise within a square shape:
+// osc(10, 0.1, 1) 
+// 	.add(noise(3), 0.5)
+// 	.mult(shape(4, 0.5, 0.1).scale(.65))
+// 	.out()
+    
+// // gabriel example:
+
+// // two outputs to blend within oscilator
+// shape(3, () => Math.sin(time) * 0.03 + 0.4, 0.01).scale(1, 9/16).color(1, 0.3,0.6).out(o1)
+// shape(16, () => Math.sin(time) *  0.03 + 0.4, 0.01).scale(1, 9/16).color(1, 0.3,0.6).out(o2)
+
+// // oscilator blending outputs from source o1 and o2
+// osc(12, 0.1, 1.5)
+// .blend(src(o1))
+// .blend(src(o2))
+// .modulate(noise(8, 0.2), 0.04)
+// .out(o0)
+
+// render(o0)
