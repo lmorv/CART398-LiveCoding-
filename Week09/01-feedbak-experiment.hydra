@@ -1,0 +1,12 @@
+// feedback example, from: https://www.youtube.com/watch?v=m-Q7b82Y9Mk
+
+osc(9,0.1,2).mult(shape(4)).out(o1)
+
+osc(10,0.5).mult(shape(4)).out(o2)
+
+src(o0).scale(1.01).rotate(0.01, 0.0) // second param in rotate() will do some crazy stuff
+  .blend(o1,0.1).out() // change source between o1 and o2 and change blend vale to 0, 0.1, 0.01 for cool transitions
+
+src(o0).modulate(src(o0).scale(1.02,0.01).blend(o1,0.1)).out() // disolves the shapew into waves of pixels
+
+//  src(o1).out() // renders out source o1

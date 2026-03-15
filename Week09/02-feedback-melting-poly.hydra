@@ -1,0 +1,13 @@
+// feedback example number two, from: https://www.youtube.com/watch?v=m-Q7b82Y9Mk
+
+osc(666, 0.1, 2).mult(shape(4)).out(o1)
+
+osc(66, 0.03, 2).mult(shape(4)).out(o2)
+
+src(o0)
+// 	.modulateHue(src(o0).scale(1.02),5)
+ 	.modulate(src(o0).scale(1.02),0.01)
+  .blend(o1,0.1) // disable blending or lower to 0.001 to expand
+  .out()
+
+// src(o0).out(o2) 
