@@ -1,0 +1,25 @@
+// @title ambient-experiment @by leo
+// based on: https://www.youtube.com/watch?v=48HwM3Op1vo&t=14s
+
+setcpm(100/4)
+
+$: note(`
+<c3 g2>/4,
+<c4 g4>/4,
+<e4 b4>/4,
+<g4 d4>/4
+`).sound("sine").room(20).size(2).attack(5).hpf(900).lpf(300).gain(.42)
+  .o("2, 4")
+
+$: n(irand(10).seg(8)).scale("C3:major").sound("z_triangle, tri").room(0.9).duck("2:3").gain(0.7)
+
+$: s(`
+bd:2 bd:4 bd:3 bd:4,
+- sd - [sd sd]
+`).bank("RolandTR808")
+
+$: note("<c2 d2>/4").sound("saw").release(0).o("4").lpf(500)
+
+$: note("<c1 d1>/4").sound("supersaw").release(0).o("3").lpf(400)
+
+$: sound("<- - - [casio:6*5 casio:6]>*2").room(5).size(5).duck("3:4").gain(0.3)

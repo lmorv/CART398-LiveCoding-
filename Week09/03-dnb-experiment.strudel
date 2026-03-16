@@ -1,0 +1,20 @@
+// @title dnb-experiment @by Leo
+// based on: https://www.youtube.com/watch?v=aPsq5nqvhxg
+
+register('rlfp', (x,pat) => {return pat.lpf(pure(x).mul(12).pow(4))}) // An adapted low pass filter
+
+setGainCurve(x => Math.pow(x,2))
+
+setCpm(170/4)
+
+$drums: stack(
+  s("bd:1").beat("0,7?,10", 16).duck("3:4:5"),
+  s("sd:2").beat("4,12",16),
+  s("hh:4!8")
+)
+  // .rib(0,1/2)
+  .orbit(2).degradeBy(0.0)._scope()
+$bass: s("supersaw!8")
+  .note("<c# f d# [d# a#2]>/2".sub("[12@4 0!2]".fast(2)))
+  .orbit("<2@4 3@2>")
+  .rlfp(slider(0.758)).lpenv("<2@4 4@2>")
