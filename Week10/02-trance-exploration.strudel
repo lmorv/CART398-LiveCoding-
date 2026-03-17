@@ -1,0 +1,40 @@
+// @title trance-exploration @by leo
+// based on: https://www.youtube.com/watch?v=iu5rnQkfO6M
+
+
+register('acidenv', (x, pat) => pat.lpf(100)
+        .lpenv(x * 9).lps(0.1).lpd(0.1).resonance(2)
+        )
+
+_$: n("<0 4 0 9 7>*16").scale("g:minor").trans(-12)
+  .o(3).s("sawtooth").acidenv(slider(1))
+  ._pianoroll()
+
+
+$: n("<0 4 0 9 7>*16".add("<7 _ _ 6 5 _ _ 6>*2")).scale("g:minor").trans(-12) // change add from ""<7 _ _ 6 5 _ _ 6>*2" to "<0>*4" along with bass pattern
+  .o(3).s("sawtooth").acidenv(slider(0.772))
+  .delay(.4).pan(rand)
+  .fm(.5).fmwave('white')
+  ._pianoroll( )
+
+
+
+$bass: n("<7 _ _ 6 5 _ <5 3> <6 4>>*2").scale("g:minor").trans(-24)
+  .detune(rand)
+  .o(4).s("supersaw").acidenv(slider(0.803))
+  ._pianoroll()
+
+
+_$: n("<0>*16").scale("g:minor").trans(-24)
+  .detune(rand)
+  .o(4).s("supersaw").acidenv(slider(0.417))
+  ._pianoroll()
+
+
+$: s("white!4").att(.4).gain(.4).o(6)
+
+$: s("bd:4!4")
+  .duckdepth(.8)
+  .duck("3:4:5:6")
+  .duckattack(.16)
+  ._scope()

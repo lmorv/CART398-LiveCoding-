@@ -1,0 +1,38 @@
+// @title acid-env-playground @by leo 
+// based on: https://www.youtube.com/watch?v=AifAIqHezb8
+
+setcpm(132/4)
+register('acidenv', (x, pat) => pat.lpf(100)
+        .lpenv(x * 9).lps(0.1).lpd(0.1).resonance(2)
+        )
+
+
+$: s("[<wt_vgame:7 wt_vgame:8!2> , sawtooth]!16")
+  .wt(.6).wtenv(.7).unison(2)
+  .decay(.16)
+  .diode("4:.4")
+  .scale("f:<major minor/2>")
+  // .fm(time.mod("<1 - 1 8 - 2>"))
+  .note("f1 c2!4")
+  .acidenv(slider(0.278)).o(3).scope()
+
+
+// kick:
+$: s("bd!3 sd:1".fast(2)).duck("3:4").duckdepth(.7).o(2)._scope()
+
+$: note(irand(54).sub(14).seg(8)
+        .fast(2)
+        .rib(2,2) // 4,2 is a good one
+       ).acidenv(slider(0.538)).lpq(4)
+        .lps(.5).unison(4)
+        .dist("3:.4")
+        .detune(rand).wt(rand)
+        .delay(.4)
+  .scale("c:<major minor!2>")
+  .sound("wt_vgame:6, wt_vgame") // sawtooth is a good one too
+
+//snare:
+$: s("white!16").dec(tri.fast(4).mul(.22)).o(6)
+
+
+
