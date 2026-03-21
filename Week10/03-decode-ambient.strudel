@@ -1,0 +1,29 @@
+// @title decode-ambient @by leo
+// based on: https://www.youtube.com/watch?v=ZZylXCiguL4
+
+setcpm(10);
+ 
+let roomCtrl = slider(1, 0, 10, .1);
+let sizeCtrl = slider(3, 0, 10, .5);
+let phasersweepCtrl = slider(300, 0, 1000, 100);
+
+
+  
+$: stack(
+  
+chord("[FM9 <Gm7 BbM7>]/2").voicing().s("<triangle, gm_epiano1:4>")
+  .noise(perlin.range(0.2,0.4))
+  .adsr("1.5:1.5:.5:1.5")
+  .phaser(2).phasersweep(phasersweepCtrl)
+  .lpf(perlin.range(800,1200)).lpq(perlin.range(5,10))
+  .room(roomCtrl).size(sizeCtrl).delay(0.5).delayfeedback(.7)
+  .postgain(perlin.range(0.15,0.1)),
+  
+chord("[FM9 <Gm7 BbM7>]/2").voicing().s("square")
+  .adsr("1.5:1.5:.5:1.5")
+  .phaser(2).phasersweep(phasersweepCtrl)
+  .lpf(perlin.range(800,1200)).lpq(perlin.range(5,10))
+  .room(roomCtrl).size(sizeCtrl).delay(0.5).delayfeedback(.7)
+  .postgain(perlin.range(0.05,0.1)),
+
+).postgain(slider(1,0,1,0.1))
